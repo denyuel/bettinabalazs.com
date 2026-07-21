@@ -22,9 +22,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     GOOGLE_PRIVATE_KEY,
     RESEND_API_KEY,
     EMAIL_FROM = "Esemény Szervező <no-reply@resend.dev>",
-    EVENT_NAME = "OHANA Event",
-    EVENT_DATE = "2026. augusztus 7. (péntek) 18:00 - 22:00",
-    EVENT_LOCATION = "Scruton, Veres Pálné utca, Budapest V. kerület",
+    EVENT_NAME = "OHANA",
+    EVENT_DATE = "2026. augusztus 7. (péntek) 18:00–21:45",
+    EVENT_LOCATION = "Scruton (1053 Budapest, Veres Pálné utca 12.)",
   } = context.env;
 
   const rawBody = await request.text();
@@ -154,17 +154,17 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Téma:</h4>
           <p style="font-style: italic; color: #4b5563; margin-bottom: 20px;">
-            "Hogyan értheted meg, hogy miért fáj, amikor kapcsolódni szeretnél másokhoz"
+            "Hogyan értheted meg, hogy miért nem tudsz igazán kapcsolódni másokhoz?"
           </p>
 
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Részletes Program:</h4>
           <ul style="padding-left: 20px; margin-bottom: 20px;">
-            <li style="margin-bottom: 8px;"><strong>17:45 - 18:15:</strong> Érkezés és hangolódás a kávézóban.</li>
+            <li style="margin-bottom: 8px;"><strong>17:45 - 18:15:</strong> Érkezés.</li>
             <li style="margin-bottom: 8px; color: #b91c1c;"><strong>18:15 - 18:25:</strong> Vezetett meditáció. <br />
-              <span style="font-size: 0.9em; font-weight: bold; color: #b91c1c;">FONTOS: Aki késik a meditáció alatt, nem léphet be a kávézóba, csak a film kezdetére (18:30-kor) tud majd csatlakozni!</span>
+              <span style="font-size: 0.9em; font-weight: bold; color: #b91c1c;">Kérjük, hogy a meditáció ideje alatt már ne érkezz. Amennyiben később érkezel, a kávézóba csak a filmvetítés kezdetekor (18:30-kor) tudsz belépni.</span>
             </li>
             <li style="margin-bottom: 8px;"><strong>18:30 - 20:30:</strong> Filmvetítés (A békés harcos útja).</li>
-            <li style="margin-bottom: 8px;"><strong>20:30 - 21:45:</strong> Közös beszélgetés az esemény témájáról.</li>
+            <li style="margin-bottom: 8px;"><strong>20:30 - 21:45:</strong> Közös beszélgetés és feldolgozás.</li>
           </ul>
           
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Fontos tudnivalók a helyszínről:</h4>
