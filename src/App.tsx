@@ -15,22 +15,25 @@ import {
 
 // Configurable constants - can easily be modified once the final details arrive
 const EVENT_DETAILS = {
-  categoryBadge: "Különleges Kertmozi Esemény",
-  name: "Kertmozi & Gasztro Est",
-  tagline: "Egy hangulatos nyári este izgalmas beszélgetéssel, finom ételekkel és egy felejthetetlen filmmel a csillagos ég alatt.",
+  categoryBadge: "Filmvetítés & Beszélgetés",
+  name: "OHANA Event",
+  tagline: "Hogyan értheted meg, hogy miért fáj, amikor kapcsolódni szeretnél másokhoz?",
   movieLabel: "A vetített film",
-  movieTitle: "Interstellar (Csillagok között)",
-  movieDuration: "169 perc • Sci-fi / Dráma",
-  aboutTitle: "Miről szól az esemény?",
+  movieTitle: "A békés harcos útja",
+  movieDuration: "120 perc • Dráma / Inspiráló",
+  dateValue: "2026. augusztus 7. (péntek) 18:00 - 22:00",
+  locationValue: "Scruton, Veres Pálné utca, Budapest V. kerület",
+  priceValue: "18 000",
+  aboutTitle: "Az esemény témája",
   aboutText:
-    "Szeretettel meghívunk az idei nyár legexkluzívabb kertmozi eseményére. Az este nem csupán a filmvetítésről szól: a vetítés előtt egy kötetlen pódiumbeszélgetést tartunk a film tudományos és filozófiai hátteréről, miközben kézműves borokat és gourmet falatokat kóstolhatnak a résztvevők.",
-  expectationsTitle: "Mire számíthatnak a résztvevők?",
+    "Hogyan értheted meg, hogy miért fáj, amikor kapcsolódni szeretnél másokhoz? Ezen az estén a filmvetítés mellett közösen boncolgatjuk az emberi kapcsolatok mélységeit, a kapcsolódási sebeket és a köztünk lévő hidak építését egy biztonságos, támogató környezetben.",
+  expectationsTitle: "Részletes Program & Fontos Információk",
   expectations: [
-    "Interaktív felvezető beszélgetés meghívott szakértő vendégekkel.",
-    "Prémium minőségű kézműves borok és gourmet falatok (az ár tartalmazza).",
-    "Kényelmes babzsákfotelek és takarók a csillagos ég alatti mozizáshoz.",
-    "Professzionális hang- és vetítéstechnika a tökéletes moziélményért.",
-    "Közvetlen, barátságos hangulat egy szűk körű (maximum 30-40 fős) társaságban.",
+    "17:45 - 18:15 | Érkezés és hangolódás a kávézóban.",
+    "18:15 - 18:25 | Vezetett meditáció (FONTOS: aki késik a meditáció alatt, nem léphet be a kávézóba, csak a film kezdetére tud majd csatlakozni!).",
+    "18:30 - 20:30 | Filmvetítés: A békés harcos útja.",
+    "20:30 - 21:45 | Közös beszélgetés az esemény témájáról.",
+    "Parkolás: Mivel a helyszín a belvárosban van, javasoljuk, hogy autóval érkezők kalkuláljanak extra időt a parkolásra a pontos érkezéshez.",
   ],
 };
 
@@ -229,7 +232,7 @@ function App() {
               </div>
               <div className="detail-info">
                 <span className="detail-label">Időpont</span>
-                <span className="detail-value">2026. augusztus 15. 19:30</span>
+                <span className="detail-value">{EVENT_DETAILS.dateValue}</span>
               </div>
             </div>
 
@@ -239,7 +242,7 @@ function App() {
               </div>
               <div className="detail-info">
                 <span className="detail-label">Helyszín</span>
-                <span className="detail-value">Gellérthegy Kert, Budapest</span>
+                <span className="detail-value">{EVENT_DETAILS.locationValue}</span>
               </div>
             </div>
 
@@ -267,7 +270,7 @@ function App() {
           <div className="price-display">
             <span className="price-label">Jegyár / fő</span>
             <div className="price-value">
-              5 000<span className="price-currency">HUF</span>
+              {EVENT_DETAILS.priceValue}<span className="price-currency">HUF</span>
             </div>
           </div>
 

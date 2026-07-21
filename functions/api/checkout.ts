@@ -30,8 +30,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       GOOGLE_SERVICE_ACCOUNT_EMAIL,
       GOOGLE_PRIVATE_KEY,
       MAX_TICKETS,
-      EVENT_NAME = "Esemény Jegy",
-      TICKET_PRICE_HUF = "5000",
+      EVENT_NAME = "OHANA Event",
+      TICKET_PRICE_HUF = "18000",
     } = context.env;
 
     if (!STRIPE_SECRET_KEY) {

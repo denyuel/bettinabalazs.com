@@ -22,9 +22,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     GOOGLE_PRIVATE_KEY,
     RESEND_API_KEY,
     EMAIL_FROM = "Esemény Szervező <no-reply@resend.dev>",
-    EVENT_NAME = "Esemény Jegy",
-    EVENT_DATE = "Hamarosan...",
-    EVENT_LOCATION = "Hamarosan...",
+    EVENT_NAME = "OHANA Event",
+    EVENT_DATE = "2026. augusztus 7. (péntek) 18:00 - 22:00",
+    EVENT_LOCATION = "Scruton, Veres Pálné utca, Budapest V. kerület",
   } = context.env;
 
   const rawBody = await request.text();
@@ -139,28 +139,45 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   if (RESEND_API_KEY) {
     try {
       const emailHtml = `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px; color: #333;">
-          <h2 style="color: #6366f1; text-align: center;">Köszönjük a vásárlást!</h2>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px; color: #333; line-height: 1.6;">
+          <h2 style="color: #6366f1; text-align: center; margin-bottom: 20px;">Köszönjük a vásárlást!</h2>
           <p>Kedves <strong>${name}</strong>,</p>
           <p>Sikeresen megvásároltad a jegyedet az alábbi eseményre:</p>
           
-          <div style="background-color: #f9fafb; border-left: 4px solid #6366f1; padding: 15px; margin: 20px 0;">
-            <h3 style="margin: 0 0 10px 0; color: #111827;">${EVENT_NAME}</h3>
+          <div style="background-color: #f9fafb; border-left: 4px solid #6366f1; padding: 15px; margin: 20px 0; border-radius: 4px;">
+            <h3 style="margin: 0 0 10px 0; color: #111827; font-size: 1.2em;">${EVENT_NAME}</h3>
+            <p style="margin: 5px 0;"><strong>Vetített film:</strong> A békés harcos útja</p>
             <p style="margin: 5px 0;"><strong>Időpont:</strong> ${EVENT_DATE}</p>
             <p style="margin: 5px 0;"><strong>Helyszín:</strong> ${EVENT_LOCATION}</p>
             <p style="margin: 5px 0;"><strong>Jegyazonosító:</strong> <code style="background: #e5e7eb; padding: 2px 6px; border-radius: 4px; font-size: 0.9em;">${sessionId}</code></p>
           </div>
           
-          <h4 style="margin: 20px 0 10px 0; color: #111827;">Fontos tudnivalók:</h4>
-          <ul style="padding-left: 20px; line-height: 1.6;">
-            <li><strong>Kapunyitás:</strong> Kérjük, érkezz legalább 15 perccel a kezdés előtt.</li>
-            <li><strong>Parkolás:</strong> A helyszín környezetében ingyenes/fizetős parkolási lehetőség áll rendelkezésre.</li>
-            <li><strong>Belépés:</strong> Belépéskor elegendő bemutatnod ezt az e-mailt a telefonodon.</li>
+          <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Téma:</h4>
+          <p style="font-style: italic; color: #4b5563; margin-bottom: 20px;">
+            "Hogyan értheted meg, hogy miért fáj, amikor kapcsolódni szeretnél másokhoz"
+          </p>
+
+          <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Részletes Program:</h4>
+          <ul style="padding-left: 20px; margin-bottom: 20px;">
+            <li style="margin-bottom: 8px;"><strong>17:45 - 18:15:</strong> Érkezés és hangolódás a kávézóban.</li>
+            <li style="margin-bottom: 8px; color: #b91c1c;"><strong>18:15 - 18:25:</strong> Vezetett meditáció. <br />
+              <span style="font-size: 0.9em; font-weight: bold; color: #b91c1c;">FONTOS: Aki késik a meditáció alatt, nem léphet be a kávézóba, csak a film kezdetére (18:30-kor) tud majd csatlakozni!</span>
+            </li>
+            <li style="margin-bottom: 8px;"><strong>18:30 - 20:30:</strong> Filmvetítés (A békés harcos útja).</li>
+            <li style="margin-bottom: 8px;"><strong>20:30 - 21:45:</strong> Közös beszélgetés az esemény témájáról.</li>
           </ul>
           
+          <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Fontos tudnivalók a helyszínről:</h4>
+          <p style="margin-bottom: 10px;">
+            <strong>Parkolás:</strong> Mivel a Scruton kávézó a belvárosban található, autóval érkezőknek javasoljuk, hogy kalkuláljanak extra parkolási idővel, hogy pontosan meg tudjanak érkezni.
+          </p>
+          <p style="margin-bottom: 20px;">
+            <strong>Belépés:</strong> Belépéskor elegendő bemutatnod ezt a visszaigazoló e-mailt a telefonodon.
+          </p>
+          
           <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 30px 0;" />
-          <p style="font-size: 0.85em; color: #6b7280; text-align: center;">
-            Ez egy automatikus visszaigazoló e-mail, kérjük, ne válaszolj rá. Találkozunk az eseményen!
+          <p style="font-size: 0.85em; color: #6b7280; text-align: center; margin: 0;">
+            Ez egy automatikus visszaigazoló e-mail, kérjük, ne válaszolj rá. Szeretettel várunk az eseményen!
           </p>
         </div>
       `;
