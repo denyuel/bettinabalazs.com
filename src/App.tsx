@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Calendar,
   MapPin,
   Ticket,
   CheckCircle,
   AlertCircle,
-  X,
   Film,
   Sparkles,
   Info,
-  Lock,
   ArrowRight,
 } from "lucide-react";
 
@@ -44,13 +42,6 @@ function App() {
   const [isSoldOut, setIsSoldOut] = useState<boolean>(false);
   const [loadingStatus, setLoadingStatus] = useState<boolean>(true);
   
-  // Checkout & Modal States
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [formError, setFormError] = useState<string | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
   // URL Notification States
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const [showCancel, setShowCancel] = useState<boolean>(false);
@@ -90,49 +81,9 @@ function App() {
     fetchStatus();
   }, []);
 
-  // 3. Handle Ticket Buy Submit
-  const handleCheckout = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormError(null);
-
-    const trimmedName = name.trim();
-    const trimmedEmail = email.trim();
-
-    if (!trimmedName || !trimmedEmail) {
-      setFormError("Kérjük, töltse ki az összes mezőt!");
-      return;
-    }
-
-    try {
-      setIsSubmitting(true);
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: trimmedName, email: trimmedEmail }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setFormError(data.error || "Hiba történt a fizetés indítása közben.");
-        setIsSubmitting(false);
-        return;
-      }
-
-      // Redirect to Stripe Checkout
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        setFormError("Nem érkezett fizetési hivatkozás a szervertől.");
-        setIsSubmitting(false);
-      }
-    } catch (err) {
-      console.error("Checkout redirect error:", err);
-      setFormError("Hálózati hiba történt. Kérjük, próbálja meg újra!");
-      setIsSubmitting(false);
-    }
+  // 3. Redirect to Stripe Payment Link
+  const handleBuyClick = () => {
+    window.location.href = "https://buy.stripe.com/test_9B66oG8dt5nGcPhfyFa3u00";
   };
 
   const remainingCount = soldCount !== null ? Math.max(0, maxTickets - soldCount) : null;
@@ -282,7 +233,7 @@ function App() {
             ) : (
               <button
                 className="btn btn-primary btn-glow-effect"
-                onClick={() => setIsModalOpen(true)}
+                onClick={handleBuyClick}
               >
                 Jegyvásárlás
                 <ArrowRight size={18} />
@@ -296,79 +247,6 @@ function App() {
         </section>
       </main>
 
-      {/* Registration Modal Overlay */}
-      <div className={`modal-overlay ${isModalOpen ? "active" : ""}`}>
-        <div className="modal-content">
-          <button className="modal-close" onClick={() => setIsModalOpen(false)}>
-            <X size={20} />
-          </button>
-          
-          <h2 className="modal-title">Jegyvásárlás</h2>
-          <p className="modal-subtitle">
-            Kérjük, add meg a neved és az e-mail címed a jegy lefoglalásához. A fizetés után azonnal küldjük a visszaigazolást.
-          </p>
-
-          <form onSubmit={handleCheckout}>
-            <div className="form-group">
-              <label htmlFor="name-input" className="form-label">
-                Teljes Név
-              </label>
-              <input
-                id="name-input"
-                type="text"
-                className="form-input"
-                placeholder="Minta János"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                disabled={isSubmitting}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email-input" className="form-label">
-                E-mail Cím
-              </label>
-              <input
-                id="email-input"
-                type="email"
-                className="form-input"
-                placeholder="janos.minta@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={isSubmitting}
-                required
-              />
-            </div>
-
-            {formError && (
-              <div className="error-message">
-                <AlertCircle size={16} />
-                <span>{formError}</span>
-              </div>
-            )}
-
-            <button
-              type="submit"
-              className="btn btn-primary btn-glow-effect"
-              style={{ marginTop: "1rem" }}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <>
-                  <div className="spinner"></div>
-                  Átirányítás...
-                </>
-              ) : (
-                <>
-                  Fizetés és Regisztráció
-                  <Lock size={16} style={{ marginLeft: "4px" }} />
-                </>
-              )}
-            </button>
-          </form>
-        </div>
-      </div>
 
       {/* Footer */}
       <footer>
