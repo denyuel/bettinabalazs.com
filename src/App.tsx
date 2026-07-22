@@ -158,9 +158,6 @@ function App() {
             <h2 className="movie-title">{EVENT_DETAILS.movieTitle}</h2>
             <p className="tagline">{EVENT_DETAILS.tagline}</p>
             <p className="description">{EVENT_DETAILS.description}</p>
-            <div className="mood-image-container">
-              <img src="/cozy_cinema_night.jpg" alt="Cozy outdoor cinema atmosphere" className="mood-img" />
-            </div>
           </div>
         </header>
 
@@ -271,11 +268,6 @@ function App() {
             )}
           </div>
         </section>
-
-        {/* Mood Image 2 */}
-        <div className="mood-image-container" style={{ margin: "1rem auto 0 auto", maxWidth: "450px" }}>
-          <img src="/cinema_marquee.jpg" alt="Good films make your life better" className="mood-img" />
-        </div>
 
         {/* Closing sign-off */}
         <div className="sign-off">
