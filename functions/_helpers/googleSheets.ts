@@ -4,14 +4,14 @@ async function getGoogleAuthToken(serviceAccountEmail: string, privateKeyPem: st
   const pemHeader = "-----BEGIN PRIVATE KEY-----";
   const pemFooter = "-----END PRIVATE KEY-----";
   
-  // Clean PEM: remove headers, footers, newlines, and spaces
+  // Clean PEM: remove headers, footers, newlines, spaces, and quotes
   let pemContents = privateKeyPem
     .replace(pemHeader, "")
     .replace(pemFooter, "")
-    .replace(/\s/g, "");
-  
-  // Handle escaped newlines if passed in raw env string
-  pemContents = pemContents.replace(/\\n/g, "");
+    .replace(/\\n/g, "")
+    .replace(/\n/g, "")
+    .replace(/\s/g, "")
+    .replace(/["']/g, "");
 
   // Convert base64 to ArrayBuffer
   const binaryDerString = atob(pemContents);
