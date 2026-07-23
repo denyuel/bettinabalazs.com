@@ -12,6 +12,11 @@ async function getGoogleAuthToken(serviceAccountEmail: string, privateKeyPem: st
     .replace(/\\r/g, "")
     .replace(/[^a-zA-Z0-9+/=]/g, "");
 
+  console.log("DEBUG: Original privateKeyPem length:", privateKeyPem ? privateKeyPem.length : 0);
+  console.log("DEBUG: Cleaned pemContents length:", pemContents.length);
+  console.log("DEBUG: Cleaned pemContents prefix:", pemContents.slice(0, 30));
+  console.log("DEBUG: Cleaned pemContents suffix:", pemContents.slice(-30));
+
   // Convert base64 to ArrayBuffer
   const binaryDerString = atob(pemContents);
   const binaryDer = new Uint8Array(binaryDerString.length);
