@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Colors - Clean Warm-White / Gallery Theme */
+  /* Colors - Clean Black & White / Gallery Theme */
   --bg-dark: #faf9f6;       /* Premium warm off-white / bone background */
   --bg-card: #ffffff;       /* Pure white card backgrounds */
   --border-color: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 0, 0, 0.16);
   
-  --primary: #e07a3c;       /* Warm Accent Orange */
-  --primary-glow: rgba(224, 122, 60, 0.08);
-  --secondary: #111111;     /* Deep Charcoal */
-  --accent: #e07a3c;
+  --primary: #1a1a1a;       /* Solid deep charcoal/black (NO ORANGE) */
+  --primary-glow: rgba(0, 0, 0, 0.04);
+  --secondary: #333333;     /* Dark Charcoal */
+  --accent: #555555;
   --success: #2e7d32;       /* Forest green */
-  --error: #c62828;         /* Deep red */
+  --error: #1a1a1a;         /* Deep charcoal warning */
   
   --text-primary: #1a1a1a;   /* Deep charcoal for maximum readability */
   --text-secondary: #4a4a4a; /* Medium charcoal for descriptions */
@@ -93,24 +93,6 @@ header {
   width: 100%;
 }
 
-.logo-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.cafe-logo {
-  height: 90px;
-  width: auto;
-  object-fit: contain;
-  opacity: 0.95;
-  transition: opacity var(--transition-fast);
-}
-
-.cafe-logo:hover {
-  opacity: 1;
-}
-
 .brand-title {
   font-family: var(--font-heading);
   font-weight: 800; /* Thicker bold font as requested */
@@ -159,7 +141,7 @@ header {
   font-style: italic;
   font-size: 44px;
   line-height: 1.2;
-  color: var(--primary);
+  color: #000000; /* Changed from primary orange to Black */
   margin-bottom: 1.5rem;
 }
 
@@ -218,6 +200,7 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
+  font-style: italic; /* Styled with clean italic style as requested */
 }
 
 .detail-row-value {
@@ -225,13 +208,15 @@ header {
   font-weight: 500;
   font-size: 18px;
   color: var(--text-primary);
+  font-style: italic; /* Styled with clean italic style as requested */
 }
 
 .detail-row-value.price {
-  color: var(--primary);
+  color: var(--text-primary);
   font-family: var(--font-heading);
   font-size: 28px;
   font-weight: 600;
+  font-style: italic; /* Styled with clean italic style as requested */
 }
 
 /* Program / Schedule Section */
@@ -268,8 +253,9 @@ header {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 15px;
-  color: var(--primary);
+  color: var(--text-primary); /* Changed to black/dark grey */
   letter-spacing: 0.05em;
+  font-style: italic; /* Changed to italic style as requested */
 }
 
 .program-title {
@@ -288,17 +274,18 @@ header {
 }
 
 .program-description.warning {
-  color: var(--error);
-  border-left: 2px solid rgba(198, 40, 40, 0.4);
+  color: #1a1a1a; /* Changed from red to deep charcoal */
+  border-left: 2px solid rgba(0, 0, 0, 0.15); /* Grey border instead of red */
   padding-left: 0.85rem;
   margin-top: 0.25rem;
-  font-weight: 400;
+  font-weight: 600; /* Thicker black text warning as requested */
+  font-style: italic; /* Italic warning */
 }
 
 /* Important Note Block */
 .important-note-card {
-  border: 1px solid rgba(224, 122, 60, 0.15);
-  background: rgba(224, 122, 60, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Grey border instead of orange */
+  background: rgba(0, 0, 0, 0.01);
   border-radius: var(--border-radius-lg);
   padding: 2rem 2.25rem;
 }
@@ -309,7 +296,7 @@ header {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--primary);
+  color: var(--text-primary); /* Black/grey instead of orange */
   margin-bottom: 0.5rem;
 }
 
@@ -341,7 +328,7 @@ header {
   font-family: var(--font-heading);
   font-size: 38px;
   font-weight: 500;
-  color: var(--primary);
+  color: var(--text-primary); /* Changed to black/grey */
   margin-top: -0.5rem;
   margin-bottom: 1.5rem;
 }
@@ -465,15 +452,15 @@ header {
 }
 
 .capacity-badge-available {
-  background: rgba(224, 122, 60, 0.06);
-  border: 1px solid rgba(224, 122, 60, 0.15);
-  color: var(--primary);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--text-secondary);
 }
 
 .capacity-badge-soldout {
-  background: rgba(198, 40, 40, 0.06);
-  border: 1px solid rgba(198, 40, 40, 0.15);
-  color: var(--error);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--text-muted);
 }
 
 /* Cafe Exterior Image Container */
@@ -494,13 +481,34 @@ header {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
+/* Bottom logos container */
+.bottom-logos-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.cafe-logo-bottom {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.95;
+  transition: opacity var(--transition-fast);
+}
+
+.cafe-logo-bottom:hover {
+  opacity: 1;
+}
+
 /* Closing Sign-off */
 .sign-off {
   font-family: var(--font-heading);
   font-style: italic;
   font-size: 30px;
   text-align: center;
-  color: var(--primary);
+  color: var(--text-primary); /* Changed to black/grey */
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -525,5 +533,5 @@ footer a {
 }
 
 footer a:hover {
-  color: var(--primary);
+  color: var(--text-primary);
 }

@@ -8,7 +8,7 @@ const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_9B66oG8dt5nGcPhfyFa3u00
 
 const EVENT_DETAILS = {
   name: "OHANA event",
-  subtitle: "„Az Ohana hawaiiul azt jelenti család, és a család azt jelenti, hogy senkit sem hagyjunk hátra vagy felejtünk el.”",
+  subtitle: "„Az Ohana hawaiiul azt jelenti család, és a családban senkit nem hagyunk hátra.”",
   movieTitle: "A Békés Harcos útja",
   tagline: "Hogyan értheted meg az emberi kapcsolataidban ismétlődő elakadásaidat és hogyan haladhatod meg azokat",
   description:
@@ -19,6 +19,8 @@ const EVENT_DETAILS = {
   dateValue: "2026. augusztus 7, péntek",
   timeLabel: "Időpont",
   timeValue: "18:00–21:45",
+  movieLabel: "Film",
+  movieValue: "A Békés Harcos útja",
   locationLabel: "Helyszín",
   locationName: "Magvető Café",
   locationAddress: "1074 Budapest, Dohány utca 13.",
@@ -153,25 +155,23 @@ function App() {
       <div className="main-content">
         {/* Header */}
         <header style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <div className="logo-container">
-            <img src={magvetoLogo} alt="Magvető Café Logo" className="cafe-logo" />
-          </div>
           <h1 className="brand-title">
             OHANA <span className="title-event-italic">event</span>
           </h1>
           <p className="brand-subtitle">{EVENT_DETAILS.subtitle}</p>
           
-          <div className="movie-title-box">
-            <h2 className="movie-title">{EVENT_DETAILS.movieTitle}</h2>
-            <p className="tagline">{EVENT_DETAILS.tagline}</p>
-            <p className="description">{EVENT_DETAILS.description}</p>
-          </div>
-          
           {/* Cafe Exterior Image */}
-          <div className="cafe-image-container" style={{ marginTop: "2.5rem" }}>
+          <div className="cafe-image-container" style={{ marginTop: "1rem" }}>
             <img src={cafeExterior} alt="Magvető Café" className="cafe-exterior-image" />
           </div>
         </header>
+
+        {/* Movie details (placed under the cafe image as requested!) */}
+        <section className="movie-title-box" style={{ textAlign: "center" }}>
+          <h2 className="movie-title">{EVENT_DETAILS.movieTitle}</h2>
+          <p className="tagline">{EVENT_DETAILS.tagline}</p>
+          <p className="description">{EVENT_DETAILS.description}</p>
+        </section>
 
         <div className="section-divider"></div>
 
@@ -185,6 +185,12 @@ function App() {
           <div className="detail-row">
             <span className="detail-row-label">{EVENT_DETAILS.timeLabel}</span>
             <span className="detail-row-value">{EVENT_DETAILS.timeValue}</span>
+          </div>
+
+          {/* Film row */}
+          <div className="detail-row">
+            <span className="detail-row-label">{EVENT_DETAILS.movieLabel}</span>
+            <span className="detail-row-value">{EVENT_DETAILS.movieValue}</span>
           </div>
 
           <div className="detail-row">
@@ -284,6 +290,11 @@ function App() {
         {/* Closing sign-off */}
         <div className="sign-off">
           {EVENT_DETAILS.signOffText}
+        </div>
+
+        {/* Logo at the bottom */}
+        <div className="bottom-logos-container">
+          <img src={magvetoLogo} alt="Magvető Café Logo" className="cafe-logo-bottom" />
         </div>
 
         {/* Footer */}
