@@ -205,9 +205,10 @@ header {
 
 .detail-row-value {
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 400; /* Matched to quote's regular weight */
   font-size: 18px;
   color: var(--text-primary);
+  letter-spacing: 0.01em; /* Matched to quote's letter-spacing */
   font-style: italic; /* Styled with clean italic style as requested */
 }
 
