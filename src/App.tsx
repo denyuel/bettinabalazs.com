@@ -166,10 +166,8 @@ function App() {
           </div>
         </header>
 
-        {/* Movie details (placed under the cafe image as requested!) */}
+        {/* Description (placed under the cafe image as requested!) */}
         <section className="movie-title-box" style={{ textAlign: "center" }}>
-          <h2 className="movie-title">{EVENT_DETAILS.movieTitle}</h2>
-          <p className="tagline">{EVENT_DETAILS.tagline}</p>
           <p className="description">{EVENT_DETAILS.description}</p>
         </section>
 
@@ -191,6 +189,12 @@ function App() {
           <div className="detail-row">
             <span className="detail-row-label">{EVENT_DETAILS.movieLabel}</span>
             <span className="detail-row-value">{EVENT_DETAILS.movieValue}</span>
+          </div>
+
+          {/* Theme/Topic row */}
+          <div className="detail-row">
+            <span className="detail-row-label">Téma</span>
+            <span className="detail-row-value">{EVENT_DETAILS.tagline}</span>
           </div>
 
           <div className="detail-row">
