@@ -289,9 +289,6 @@ function App() {
         {/* Footer */}
         <footer>
           <p>© 2026 {EVENT_DETAILS.name}. Minden jog fenntartva.</p>
-          <p style={{ marginTop: "0.5rem", fontSize: "11px" }}>
-            Hoszting: <a href="https://pages.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>
-          </p>
         </footer>
       </div>
     </div>
