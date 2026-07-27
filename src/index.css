@@ -96,7 +96,7 @@ header {
 .brand-title {
   font-family: var(--font-heading);
   font-weight: 800; /* Thicker bold font as requested */
-  font-size: 60px;
+  font-size: 68px; /* Increased size as requested */
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: #000000; /* Black */
@@ -113,7 +113,7 @@ header {
 
 @media (max-width: 600px) {
   .brand-title {
-    font-size: 48px;
+    font-size: 52px; /* Increased size as requested */
   }
 }
 
@@ -254,7 +254,7 @@ header {
   font-weight: 400; /* Normal weight, not highlighted/bolded */
   font-size: 15px;
   color: var(--text-primary);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em; /* Matched the quote's letter-spacing */
   font-style: italic; /* Italicized */
 }
 
