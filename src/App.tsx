@@ -8,7 +8,7 @@ const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_9B66oG8dt5nGcPhfyFa3u00
 
 const EVENT_DETAILS = {
   name: "OHANA event",
-  subtitle: "„Az Ohana hawaiiul azt jelenti család, és a családban senkit nem hagyunk magára.”",
+  subtitle: "„Az Ohana hawaiiul azt jelenti család, és a családból senkit nem hagyunk magára.”",
   movieTitle: "A Békés Harcos útja",
   tagline: "Hogyan értheted meg az emberi kapcsolataidban ismétlődő elakadásaidat és hogyan haladhatod meg azokat",
   description:
