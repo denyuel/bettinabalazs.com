@@ -166,6 +166,11 @@ function App() {
             <p className="tagline">{EVENT_DETAILS.tagline}</p>
             <p className="description">{EVENT_DETAILS.description}</p>
           </div>
+          
+          {/* Cafe Exterior Image */}
+          <div className="cafe-image-container" style={{ marginTop: "2.5rem" }}>
+            <img src={cafeExterior} alt="Magvető Café" className="cafe-exterior-image" />
+          </div>
         </header>
 
         <div className="section-divider"></div>
@@ -275,11 +280,6 @@ function App() {
             )}
           </div>
         </section>
-
-        {/* Cafe Exterior Image */}
-        <div className="cafe-image-container">
-          <img src={cafeExterior} alt="Magvető Café" className="cafe-exterior-image" />
-        </div>
 
         {/* Closing sign-off */}
         <div className="sign-off">
