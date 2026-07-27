@@ -369,10 +369,11 @@ header {
   max-width: 320px;
   padding: 1.1rem 2.5rem;
   border-radius: var(--border-radius-md);
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-family: var(--font-heading); /* Ohana's Cormorant Garamond font as requested */
+  font-size: 16px; /* Matched size feeling with heading font */
+  font-weight: 600; /* Bold weight */
+  letter-spacing: 0.08em; /* Elegant spaced-out uppercase serif letters */
+  text-transform: uppercase; /* All caps as requested */
   text-decoration: none;
   cursor: pointer;
   transition: all var(--transition-normal);

@@ -259,7 +259,7 @@ function App() {
           <div>
             {isSoldOut ? (
               <button className="btn btn-soldout" disabled>
-                Minden jegy elkelt
+                MINDEN JEGY ELKELT
               </button>
             ) : (
               <button
@@ -267,7 +267,7 @@ function App() {
                 onClick={handleBuyClick}
                 disabled={loadingStatus}
               >
-                Jegyvásárlás
+                JEGYVÁSÁRLÁS
                 <ArrowRight size={16} style={{ marginLeft: "8px" }} />
               </button>
             )}
