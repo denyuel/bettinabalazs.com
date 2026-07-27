@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { CheckCircle, AlertCircle, ArrowRight } from "lucide-react";
 import magvetoLogo from "./assets/magveto_cafe_logo.jpg";
+import cafeExterior from "./assets/fuel4887.jpg";
 
 // Configurable constants
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_9B66oG8dt5nGcPhfyFa3u00";
@@ -67,7 +68,7 @@ const EVENT_DETAILS = {
 function App() {
   // Capacity & Status states
   const [soldCount, setSoldCount] = useState<number | null>(null);
-  const [maxTickets, setMaxTickets] = useState<number>(35);
+  const [maxTickets, setMaxTickets] = useState<number>(50);
   const [isSoldOut, setIsSoldOut] = useState<boolean>(false);
   const [loadingStatus, setLoadingStatus] = useState<boolean>(true);
 
@@ -155,7 +156,9 @@ function App() {
           <div className="logo-container">
             <img src={magvetoLogo} alt="Magvető Café Logo" className="cafe-logo" />
           </div>
-          <h1 className="brand-title">{EVENT_DETAILS.name}</h1>
+          <h1 className="brand-title">
+            OHANA <span className="title-event-italic">event</span>
+          </h1>
           <p className="brand-subtitle">{EVENT_DETAILS.subtitle}</p>
           
           <div className="movie-title-box">
@@ -272,6 +275,11 @@ function App() {
             )}
           </div>
         </section>
+
+        {/* Cafe Exterior Image */}
+        <div className="cafe-image-container">
+          <img src={cafeExterior} alt="Magvető Café" className="cafe-exterior-image" />
+        </div>
 
         {/* Closing sign-off */}
         <div className="sign-off">
