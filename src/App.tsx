@@ -28,7 +28,7 @@ const EVENT_DETAILS = {
   priceValue: "18 000 Ft / fő",
 
   // Program
-  programTitle: "Az este menete",
+  programTitle: "Az est menete",
   programItems: [
     {
       time: "17:45–18:15",
@@ -213,7 +213,7 @@ function App() {
 
         {/* Schedule */}
         <section>
-          <h3 className="section-heading-cormorant">{EVENT_DETAILS.programTitle}</h3>
+          <h2 className="brand-title" style={{ textAlign: "center", marginBottom: "2.5rem" }}>{EVENT_DETAILS.programTitle}</h2>
           
           <div className="program-timeline">
             {EVENT_DETAILS.programItems.map((item, idx) => (

@@ -251,16 +251,16 @@ header {
 
 .program-time {
   font-family: var(--font-body);
-  font-weight: 600;
+  font-weight: 400; /* Normal weight, not highlighted/bolded */
   font-size: 15px;
-  color: var(--text-primary); /* Changed to black/dark grey */
+  color: var(--text-primary);
   letter-spacing: 0.05em;
-  font-style: italic; /* Changed to italic style as requested */
+  font-style: italic; /* Italicized */
 }
 
 .program-title {
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 400; /* Normal weight, not highlighted/bolded */
   font-size: 17px;
   color: var(--text-primary);
 }
