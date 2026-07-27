@@ -495,6 +495,7 @@ header {
   width: auto;
   object-fit: contain;
   opacity: 0.95;
+  mix-blend-mode: multiply; /* Blends white image background seamlessly with the warm off-white body background */
   transition: opacity var(--transition-fast);
 }
 
