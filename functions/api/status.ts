@@ -23,7 +23,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       );
     }
 
-    const maxTickets = parseInt(MAX_TICKETS || "50", 10);
+    const maxTickets = parseInt(MAX_TICKETS || "40", 10);
 
     // Read the sheet. We assume column headers are in row 1.
     // Row content starts at A2.

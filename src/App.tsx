@@ -69,8 +69,6 @@ const EVENT_DETAILS = {
 
 function App() {
   // Capacity & Status states
-  const [soldCount, setSoldCount] = useState<number | null>(null);
-  const [maxTickets, setMaxTickets] = useState<number>(50);
   const [isSoldOut, setIsSoldOut] = useState<boolean>(false);
   const [loadingStatus, setLoadingStatus] = useState<boolean>(true);
 
@@ -97,8 +95,6 @@ function App() {
       const res = await fetch("/api/status");
       if (res.ok) {
         const data = await res.json();
-        setSoldCount(data.soldCount);
-        setMaxTickets(data.maxTickets);
         setIsSoldOut(data.isSoldOut);
       }
     } catch (err) {
@@ -117,7 +113,7 @@ function App() {
     window.location.href = STRIPE_PAYMENT_LINK;
   };
 
-  const remainingCount = soldCount !== null ? Math.max(0, maxTickets - soldCount) : null;
+
 
   return (
     <div className="app-container">
@@ -249,20 +245,6 @@ function App() {
             {EVENT_DETAILS.saleTitle}
           </h3>
           
-          {loadingStatus ? (
-            <div className="capacity-badge capacity-badge-available">
-              Szabad helyek lekérdezése...
-            </div>
-          ) : isSoldOut ? (
-            <div className="capacity-badge capacity-badge-soldout">
-              Az esemény megtelt, a jegyek elfogytak.
-            </div>
-          ) : remainingCount !== null ? (
-            <div className="capacity-badge capacity-badge-available">
-              Még {remainingCount} szabad hely érhető el
-            </div>
-          ) : null}
-
           <div className="ticket-price-display">
             {EVENT_DETAILS.salePrice}
           </div>
@@ -276,8 +258,8 @@ function App() {
 
           <div>
             {isSoldOut ? (
-              <button className="btn btn-primary" disabled>
-                Elfogyott
+              <button className="btn btn-soldout" disabled>
+                Minden jegy elkelt
               </button>
             ) : (
               <button
