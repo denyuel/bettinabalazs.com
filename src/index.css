@@ -75,7 +75,7 @@ body {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 4.5rem;
+  gap: 3rem; /* Reduced gap to bring sections closer together */
 }
 
 /* Divider Line */
@@ -96,7 +96,7 @@ header {
 .brand-title {
   font-family: var(--font-heading);
   font-weight: 800; /* Thicker bold font as requested */
-  font-size: 68px; /* Increased size as requested */
+  font-size: 76px; /* Increased size as requested */
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: #000000; /* Black */
@@ -113,7 +113,7 @@ header {
 
 @media (max-width: 600px) {
   .brand-title {
-    font-size: 52px; /* Increased size as requested */
+    font-size: 56px; /* Increased size as requested */
   }
 }
 
@@ -133,7 +133,7 @@ header {
 }
 
 .movie-title-box {
-  margin-bottom: 2.5rem;
+  margin-bottom: 0; /* Removed extra spacing to keep info close to details card */
 }
 
 .movie-title {

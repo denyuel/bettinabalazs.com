@@ -28,7 +28,7 @@ const EVENT_DETAILS = {
   priceValue: "18 000 Ft / fő",
 
   // Program
-  programTitle: "Az est menete",
+  programTitle: "AZ EST MENETE",
   programItems: [
     {
       time: "17:45–18:15",
