@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { CheckCircle, AlertCircle, ArrowRight } from "lucide-react";
-import magvetoLogo from "./assets/magveto_cafe_logo.jpg";
+import magvetoLogo from "./assets/magveto_cafe_logo.png";
 import cafeExterior from "./assets/fuel4887.jpg";
 
 // Configurable constants
