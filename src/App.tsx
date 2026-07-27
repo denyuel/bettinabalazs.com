@@ -163,6 +163,7 @@ function App() {
           {/* Cafe Exterior Image */}
           <div className="cafe-image-container" style={{ marginTop: "1rem" }}>
             <img src={cafeExterior} alt="Magvető Café" className="cafe-exterior-image" />
+            <img src={magvetoLogo} alt="Magvető Café Logo" className="cafe-logo-overlay" />
           </div>
         </header>
 
@@ -296,10 +297,7 @@ function App() {
           {EVENT_DETAILS.signOffText}
         </div>
 
-        {/* Logo at the bottom */}
-        <div className="bottom-logos-container">
-          <img src={magvetoLogo} alt="Magvető Café Logo" className="cafe-logo-bottom" />
-        </div>
+
 
         {/* Footer */}
         <footer>

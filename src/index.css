@@ -483,6 +483,7 @@ header {
 
 /* Cafe Exterior Image Container */
 .cafe-image-container {
+  position: relative; /* Support absolute positioning of logo overlay */
   display: flex;
   justify-content: center;
   margin-top: 1rem;
@@ -499,25 +500,24 @@ header {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
-/* Bottom logos container */
-.bottom-logos-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
-.cafe-logo-bottom {
-  height: 90px;
+/* Cafe Logo Overlay (bottom-left corner of the exterior photo) */
+.cafe-logo-overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  height: 60px; /* Subtle watermark size */
   width: auto;
   object-fit: contain;
-  opacity: 0.95;
-  transition: opacity var(--transition-fast);
+  opacity: 0.85;
+  pointer-events: none; /* Let user clicks propagate to background container naturally */
 }
 
-.cafe-logo-bottom:hover {
-  opacity: 1;
+@media (max-width: 600px) {
+  .cafe-logo-overlay {
+    bottom: 16px;
+    left: 16px;
+    height: 40px; /* Scale down on smaller viewports */
+  }
 }
 
 /* Closing Sign-off */
