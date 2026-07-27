@@ -22,9 +22,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     GOOGLE_PRIVATE_KEY,
     RESEND_API_KEY,
     EMAIL_FROM = "Esemény Szervező <no-reply@resend.dev>",
-    EVENT_NAME = "OHANA",
-    EVENT_DATE = "2026. augusztus 7. (péntek) 18:00–21:45",
-    EVENT_LOCATION = "Scruton (1053 Budapest, Veres Pálné utca 12.)",
+    EVENT_NAME = "OHANA event",
+    EVENT_DATE = "2026. augusztus 7, péntek 18:00–21:45",
+    EVENT_LOCATION = "Magvető Café (1074 Budapest, Dohány utca 13.)",
   } = context.env;
 
   const rawBody = await request.text();
@@ -154,7 +154,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Téma:</h4>
           <p style="font-style: italic; color: #4b5563; margin-bottom: 20px;">
-            "Hogyan értheted meg, hogy miért nem tudsz igazán kapcsolódni másokhoz?"
+            "Hogyan értheted meg az emberi kapcsolataidban ismétlődő elakadásaidat és hogyan haladhatod meg azokat"
           </p>
 
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Részletes Program:</h4>

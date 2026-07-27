@@ -121,6 +121,26 @@ header {
   margin-bottom: 2rem;
 }
 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+.cafe-logo {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  filter: invert(1) brightness(1.1); /* Invert white logo background to blend with dark page background */
+  opacity: 0.85;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.cafe-logo:hover {
+  opacity: 1;
+  filter: invert(1) brightness(1.2) drop-shadow(0 0 8px rgba(224, 122, 60, 0.25));
+}
+
 .brand-title {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -128,7 +148,7 @@ header {
   line-height: 1.1;
   letter-spacing: 0.05em; /* increased letter spacing for title */
   color: #ffffff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   text-shadow: 0 2px 10px rgba(224, 122, 60, 0.25), 0 0 35px rgba(224, 122, 60, 0.12);
 }
 
@@ -140,12 +160,17 @@ header {
 
 .brand-subtitle {
   font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 16px; /* Inter Medium 16px */
-  letter-spacing: 0.18em; /* larger letter spacing */
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 4rem;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px; /* Inter Italic 16px */
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--text-secondary);
+  margin-bottom: 3.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .movie-title-box {

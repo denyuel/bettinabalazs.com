@@ -1,25 +1,26 @@
 import { useState, useEffect } from "react";
 import { CheckCircle, AlertCircle, ArrowRight } from "lucide-react";
+import magvetoLogo from "./assets/magveto_cafe_logo.jpg";
 
 // Configurable constants
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_9B66oG8dt5nGcPhfyFa3u00";
 
 const EVENT_DETAILS = {
-  name: "OHANA",
-  subtitle: "Cinema Evening • Community • Self-discovery",
+  name: "OHANA event",
+  subtitle: "„Az Ohana hawaiiul azt jelenti család, és a család azt jelenti, hogy senkit sem hagyjunk hátra vagy felejtünk el.”",
   movieTitle: "A Békés Harcos útja",
-  tagline: "Hogyan értheted meg, hogy miért nem tudsz igazán kapcsolódni másokhoz?",
+  tagline: "Hogyan értheted meg az emberi kapcsolataidban ismétlődő elakadásaidat és hogyan haladhatod meg azokat",
   description:
     "Egy különleges filmest, ahol a vetítés után közösen dolgozzuk fel a film üzenetét egy vezetett beszélgetés során. Az este célja, hogy mélyebben megértsd önmagadat, a kapcsolódási mintáidat és azt, mi állhat a nehézségeid mögött.",
   
   // Event card
   dateLabel: "Dátum",
-  dateValue: "2026. augusztus 7. (péntek)",
+  dateValue: "2026. augusztus 7, péntek",
   timeLabel: "Időpont",
   timeValue: "18:00–21:45",
   locationLabel: "Helyszín",
-  locationName: "Scruton",
-  locationAddress: "1053 Budapest, Veres Pálné utca 12.",
+  locationName: "Magvető Café",
+  locationAddress: "1074 Budapest, Dohány utca 13.",
   priceLabel: "Jegyár",
   priceValue: "18 000 Ft / fő",
 
@@ -150,7 +151,10 @@ function App() {
 
       <div className="main-content">
         {/* Header */}
-        <header>
+        <header style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div className="logo-container">
+            <img src={magvetoLogo} alt="Magvető Café Logo" className="cafe-logo" />
+          </div>
           <h1 className="brand-title">{EVENT_DETAILS.name}</h1>
           <p className="brand-subtitle">{EVENT_DETAILS.subtitle}</p>
           
