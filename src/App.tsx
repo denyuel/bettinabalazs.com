@@ -213,7 +213,7 @@ function App() {
 
         {/* Schedule */}
         <section>
-          <h2 className="brand-title" style={{ textAlign: "center", marginBottom: "2.5rem" }}>{EVENT_DETAILS.programTitle}</h2>
+          <h2 className="program-header-title">{EVENT_DETAILS.programTitle}</h2>
           
           <div className="program-timeline">
             {EVENT_DETAILS.programItems.map((item, idx) => (

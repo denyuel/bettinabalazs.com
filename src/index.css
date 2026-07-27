@@ -95,11 +95,11 @@ header {
 
 .brand-title {
   font-family: var(--font-heading);
-  font-weight: 800; /* Thicker bold font as requested */
-  font-size: 76px; /* Increased size as requested */
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  color: #000000; /* Black */
+  font-weight: 800;
+  font-size: 104px; /* Significantly increased to span the width of the container/image */
+  line-height: 1.0; /* Tighter line-height for large display typography */
+  letter-spacing: -0.02em; /* Slightly tighter letter-spacing for large text */
+  color: #000000;
   margin-bottom: 0.75rem;
 }
 
@@ -113,7 +113,7 @@ header {
 
 @media (max-width: 600px) {
   .brand-title {
-    font-size: 56px; /* Increased size as requested */
+    font-size: 64px; /* Scaled up for mobile display */
   }
 }
 
@@ -221,12 +221,29 @@ header {
 }
 
 /* Program / Schedule Section */
+.program-header-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 72px; /* Large bold header matching OHANA title style but sized to fit 1 line */
+  text-align: center;
+  color: #000000;
+  margin-bottom: 2.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 600px) {
+  .program-header-title {
+    font-size: 48px;
+  }
+}
+
 .section-heading-cormorant {
   font-family: var(--font-heading);
   font-size: 36px;
   font-weight: 500;
   text-align: center;
-  color: #000000; /* Black */
+  color: #000000;
   margin-bottom: 2.5rem;
   letter-spacing: 0.02em;
 }
