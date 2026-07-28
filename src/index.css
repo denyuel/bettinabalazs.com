@@ -582,10 +582,10 @@ footer a:hover {
 .credit-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem; /* Slightly larger gap for readability */
+  gap: 0.65rem; /* Slightly larger gap for readability */
   text-decoration: none;
   color: var(--text-muted) !important;
-  font-size: 14px; /* Slightly larger text */
+  font-size: 15px; /* Slightly larger text to balance with the bigger logo */
   font-family: var(--font-body);
 }
 
@@ -597,7 +597,7 @@ footer a:hover {
 }
 
 .credit-logo {
-  height: 32px; /* Increased size for better visibility */
+  height: 48px; /* Significantly increased size so the "Webdesign" subtitle is fully visible */
   width: auto;
   object-fit: contain;
   filter: grayscale(1) contrast(1.1); /* Match the charcoal/black aesthetic */
@@ -606,6 +606,6 @@ footer a:hover {
 
 @media (max-width: 600px) {
   .credit-logo {
-    height: 26px; /* Scaled up on mobile viewports */
+    height: 36px; /* Scaled up on mobile viewports */
   }
 }

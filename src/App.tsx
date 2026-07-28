@@ -284,13 +284,15 @@ function App() {
 
         {/* Footer */}
         <footer>
-          <p>© 2026 {EVENT_DETAILS.name}. Minden jog fenntartva.</p>
-          <div className="credit-section" style={{ marginTop: "1.5rem" }}>
+          <div className="credit-section">
             <a href="https://borbaswebdesign.hu/" target="_blank" rel="noopener noreferrer" className="credit-link">
               <span className="credit-text">készítette</span>
               <img src={borbasLogo} alt="Borbás Webdesign" className="credit-logo" />
             </a>
           </div>
+          <p className="copyright-text" style={{ marginTop: "1.75rem" }}>
+            © 2026 {EVENT_DETAILS.name}. Minden jog fenntartva.
+          </p>
         </footer>
       </div>
     </div>
