@@ -571,7 +571,7 @@ footer a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.55;
+  opacity: 0.65; /* Slightly increased visibility */
   transition: opacity var(--transition-fast);
 }
 
@@ -582,10 +582,10 @@ footer a:hover {
 .credit-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.55rem; /* Slightly larger gap for readability */
   text-decoration: none;
   color: var(--text-muted) !important;
-  font-size: 13px;
+  font-size: 14px; /* Slightly larger text */
   font-family: var(--font-body);
 }
 
@@ -597,7 +597,7 @@ footer a:hover {
 }
 
 .credit-logo {
-  height: 24px; /* Elegant, small, and fits perfectly next to the text! */
+  height: 32px; /* Increased size for better visibility */
   width: auto;
   object-fit: contain;
   filter: grayscale(1) contrast(1.1); /* Match the charcoal/black aesthetic */
@@ -606,6 +606,6 @@ footer a:hover {
 
 @media (max-width: 600px) {
   .credit-logo {
-    height: 20px; /* Scale down slightly on mobile */
+    height: 26px; /* Scaled up on mobile viewports */
   }
 }
