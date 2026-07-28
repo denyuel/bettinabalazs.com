@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { CheckCircle, AlertCircle, ArrowRight } from "lucide-react";
 import magvetoLogo from "./assets/magveto_cafe_logo.png";
 import cafeExterior from "./assets/fuel4887.jpg";
+import borbasLogo from "./assets/borbas_webdesign_logo.png";
 
 // Configurable constants
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/00waEW4UngZW4Dv55T8k800";
@@ -284,6 +285,12 @@ function App() {
         {/* Footer */}
         <footer>
           <p>© 2026 {EVENT_DETAILS.name}. Minden jog fenntartva.</p>
+          <div className="credit-section" style={{ marginTop: "1.5rem" }}>
+            <a href="https://borbaswebdesign.hu/" target="_blank" rel="noopener noreferrer" className="credit-link">
+              <span className="credit-text">készítette</span>
+              <img src={borbasLogo} alt="Borbás Webdesign" className="credit-logo" />
+            </a>
+          </div>
         </footer>
       </div>
     </div>
