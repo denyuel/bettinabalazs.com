@@ -1,7 +1,8 @@
 import { getGoogleSheetValues } from "../_helpers/googleSheets";
 
 interface Env {
-  STRIPE_SECRET_KEY: string;
+  STRIPE_SECRET_KEY?: string;
+  STRIPE_SECRET_KEY_LIVE?: string;
   GOOGLE_SPREADSHEET_ID: string;
   GOOGLE_SERVICE_ACCOUNT_EMAIL: string;
   GOOGLE_PRIVATE_KEY: string;
@@ -26,6 +27,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     const {
       STRIPE_SECRET_KEY,
+      STRIPE_SECRET_KEY_LIVE,
       GOOGLE_SPREADSHEET_ID,
       GOOGLE_SERVICE_ACCOUNT_EMAIL,
       GOOGLE_PRIVATE_KEY,
@@ -34,7 +36,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       TICKET_PRICE_HUF = "18000",
     } = context.env;
 
-    if (!STRIPE_SECRET_KEY) {
+    const actualStripeKey = STRIPE_SECRET_KEY_LIVE || STRIPE_SECRET_KEY;
+
+    if (!actualStripeKey) {
       return new Response(
         JSON.stringify({ error: "Hiányzó Stripe konfiguráció a szerveren." }),
         { status: 500, headers: { "Content-Type": "application/json" } }
@@ -101,7 +105,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const stripeResponse = await fetch("https://api.stripe.com/v1/checkout/sessions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${STRIPE_SECRET_KEY}`,
+        Authorization: `Bearer ${actualStripeKey}`,
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: stripeParams.toString(),

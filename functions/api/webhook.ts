@@ -3,6 +3,7 @@ import { verifyStripeSignature } from "../_helpers/stripeSignature";
 
 interface Env {
   STRIPE_WEBHOOK_SECRET?: string;
+  STRIPE_WEBHOOK_SECRET_LIVE?: string;
   GOOGLE_SPREADSHEET_ID: string;
   GOOGLE_SERVICE_ACCOUNT_EMAIL: string;
   GOOGLE_PRIVATE_KEY: string;
@@ -17,6 +18,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const { request } = context;
   const {
     STRIPE_WEBHOOK_SECRET,
+    STRIPE_WEBHOOK_SECRET_LIVE,
     GOOGLE_SPREADSHEET_ID,
     GOOGLE_SERVICE_ACCOUNT_EMAIL,
     GOOGLE_PRIVATE_KEY,
@@ -27,12 +29,14 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     EVENT_LOCATION = "Magvető Café (1074 Budapest, Dohány utca 13.)",
   } = context.env;
 
+  const actualWebhookSecret = STRIPE_WEBHOOK_SECRET_LIVE || STRIPE_WEBHOOK_SECRET;
+
   const rawBody = await request.text();
   const signatureHeader = request.headers.get("Stripe-Signature");
 
   // 1. Verify Stripe Webhook Signature if secret is configured
-  if (STRIPE_WEBHOOK_SECRET && signatureHeader) {
-    const isValid = await verifyStripeSignature(rawBody, signatureHeader, STRIPE_WEBHOOK_SECRET);
+  if (actualWebhookSecret && signatureHeader) {
+    const isValid = await verifyStripeSignature(rawBody, signatureHeader, actualWebhookSecret);
     if (!isValid) {
       console.warn("Invalid Stripe signature on webhook.");
       return new Response(JSON.stringify({ error: "Invalid signature" }), {
@@ -40,7 +44,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         headers: { "Content-Type": "application/json" },
       });
     }
-  } else if (STRIPE_WEBHOOK_SECRET) {
+  } else if (actualWebhookSecret) {
     console.warn("Missing Stripe-Signature header while Stripe webhook secret is configured.");
     return new Response(JSON.stringify({ error: "Missing signature header" }), {
       status: 400,
