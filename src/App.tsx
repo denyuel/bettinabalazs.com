@@ -4,7 +4,7 @@ import magvetoLogo from "./assets/magveto_cafe_logo.png";
 import cafeExterior from "./assets/fuel4887.jpg";
 
 // Configurable constants
-const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_9B66oG8dt5nGcPhfyFa3u00";
+const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/00waEW4UngZW4Dv55T8k800";
 
 const EVENT_DETAILS = {
   name: "OHANA event",
