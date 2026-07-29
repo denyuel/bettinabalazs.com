@@ -150,7 +150,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           
           <div style="background-color: #f9fafb; border-left: 4px solid #6366f1; padding: 15px; margin: 20px 0; border-radius: 4px;">
             <h3 style="margin: 0 0 10px 0; color: #111827; font-size: 1.2em;">${EVENT_NAME}</h3>
-            <p style="margin: 5px 0;"><strong>Vetített film:</strong> A békés harcos útja</p>
+            <p style="margin: 5px 0;"><strong>Vetített film:</strong> Truman Show</p>
             <p style="margin: 5px 0;"><strong>Időpont:</strong> ${EVENT_DATE}</p>
             <p style="margin: 5px 0;"><strong>Helyszín:</strong> ${EVENT_LOCATION}</p>
             <p style="margin: 5px 0;"><strong>Jegyazonosító:</strong> <code style="background: #e5e7eb; padding: 2px 6px; border-radius: 4px; font-size: 0.9em;">${sessionId}</code></p>
@@ -158,7 +158,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Téma:</h4>
           <p style="font-style: italic; color: #4b5563; margin-bottom: 20px;">
-            "Hogyan értheted meg az emberi kapcsolataidban ismétlődő elakadásaidat és hogyan haladhatod meg azokat"
+            "Hogyan léphetsz ki a mások által felépített elvárásokból és hogyan választhatod a saját, szabad életedet"
           </p>
 
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Részletes Program:</h4>
@@ -167,13 +167,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
             <li style="margin-bottom: 8px; color: #b91c1c;"><strong>18:15 - 18:25:</strong> Vezetett meditáció. <br />
               <span style="font-size: 0.9em; font-weight: bold; color: #b91c1c;">Kérjük, hogy a meditáció ideje alatt már ne érkezz. Amennyiben később érkezel, a kávézóba csak a filmvetítés kezdetekor (18:30-kor) tudsz belépni.</span>
             </li>
-            <li style="margin-bottom: 8px;"><strong>18:30 - 20:30:</strong> Filmvetítés (A békés harcos útja).</li>
+            <li style="margin-bottom: 8px;"><strong>18:30 - 20:30:</strong> Filmvetítés (Truman Show).</li>
             <li style="margin-bottom: 8px;"><strong>20:30 - 21:45:</strong> Közös beszélgetés és feldolgozás.</li>
           </ul>
           
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Fontos tudnivalók a helyszínről:</h4>
           <p style="margin-bottom: 10px;">
-            <strong>Parkolás:</strong> Mivel a Scruton kávézó a belvárosban található, autóval érkezőknek javasoljuk, hogy kalkuláljanak extra parkolási idővel, hogy pontosan meg tudjanak érkezni.
+            <strong>Parkolás:</strong> Mivel a helyszín a belvárosban található, autóval érkezőknek javasoljuk, hogy kalkuláljanak extra parkolási idővel, hogy pontosan meg tudjanak érkezni.
           </p>
           <p style="margin-bottom: 20px;">
             <strong>Belépés:</strong> Belépéskor elegendő bemutatnod ezt a visszaigazoló e-mailt a telefonodon.

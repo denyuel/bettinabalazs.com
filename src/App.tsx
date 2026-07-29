@@ -10,8 +10,8 @@ const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/00waEW4UngZW4Dv55T8k800";
 const EVENT_DETAILS = {
   name: "OHANA event",
   subtitle: "„Az Ohana hawaiiul azt jelenti család, és a családból senkit nem hagyunk magára.”",
-  movieTitle: "A Békés Harcos útja",
-  tagline: "Hogyan értheted meg az emberi kapcsolataidban ismétlődő elakadásaidat és hogyan haladhatod meg azokat",
+  movieTitle: "Truman Show",
+  tagline: "Hogyan léphetsz ki a mások által felépített elvárásokból és hogyan választhatod a saját, szabad életedet",
   description:
     "Egy különleges filmest, ahol a vetítés után közösen dolgozzuk fel a film üzenetét egy vezetett beszélgetés során. Az este célja, hogy mélyebben megértsd önmagadat, a kapcsolódási mintáidat és azt, mi állhat a nehézségeid mögött.",
   
@@ -21,7 +21,7 @@ const EVENT_DETAILS = {
   timeLabel: "Időpont",
   timeValue: "18:00–21:45",
   movieLabel: "Film",
-  movieValue: "A Békés Harcos útja",
+  movieValue: "Truman Show",
   locationLabel: "Helyszín",
   locationName: "Magvető Café",
   locationAddress: "1074 Budapest, Dohány utca 13.",
