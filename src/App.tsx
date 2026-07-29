@@ -11,7 +11,7 @@ const EVENT_DETAILS = {
   name: "OHANA event",
   subtitle: "„Az Ohana hawaiiul azt jelenti család, és a családból senkit nem hagyunk magára.”",
   movieTitle: "Truman Show",
-  tagline: "Hogyan léphetsz ki a mások által felépített elvárásokból és hogyan választhatod a saját, szabad életedet",
+  tagline: "Miért látjuk gyakran azt a másikban, akit szeretnénk látni — nem azt, aki valójában",
   description:
     "Egy különleges filmest, ahol a vetítés után közösen dolgozzuk fel a film üzenetét egy vezetett beszélgetés során. Az este célja, hogy mélyebben megértsd önmagadat, a kapcsolódási mintáidat és azt, mi állhat a nehézségeid mögött.",
   

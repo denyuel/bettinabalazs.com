@@ -158,7 +158,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Téma:</h4>
           <p style="font-style: italic; color: #4b5563; margin-bottom: 20px;">
-            "Hogyan léphetsz ki a mások által felépített elvárásokból és hogyan választhatod a saját, szabad életedet"
+            "Miért látjuk gyakran azt a másikban, akit szeretnénk látni — nem azt, aki valójában"
           </p>
 
           <h4 style="margin: 20px 0 10px 0; color: #111827; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">Részletes Program:</h4>
