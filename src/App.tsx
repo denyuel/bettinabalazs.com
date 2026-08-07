@@ -70,7 +70,7 @@ const EVENT_DETAILS = {
 
 function App() {
   // Capacity & Status states
-  const [isSoldOut, setIsSoldOut] = useState<boolean>(false);
+  const [isSoldOut, setIsSoldOut] = useState<boolean>(true);
   const [loadingStatus, setLoadingStatus] = useState<boolean>(true);
 
   // URL Status states
@@ -95,8 +95,7 @@ function App() {
       setLoadingStatus(true);
       const res = await fetch("/api/status");
       if (res.ok) {
-        const data = await res.json();
-        setIsSoldOut(data.isSoldOut);
+        setIsSoldOut(true); // Forced sold out
       }
     } catch (err) {
       console.error("Error fetching event capacity status:", err);

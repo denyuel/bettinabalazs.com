@@ -47,14 +47,14 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     });
 
     const soldCount = successfulTickets.length;
-    const isSoldOut = soldCount >= maxTickets;
+    const isSoldOut = true; // Forced sold out as requested by owner
 
     return new Response(
       JSON.stringify({
         soldCount,
         maxTickets,
         isSoldOut,
-        ticketsRemaining: Math.max(0, maxTickets - soldCount),
+        ticketsRemaining: 0,
       }),
       {
         status: 200,
