@@ -169,6 +169,22 @@ header {
   line-height: 1.75;
 }
 
+.mirror-quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 32px; /* 2px smaller than event-main-topic (34px) */
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .mirror-quote {
+    font-size: 24px; /* 2px smaller than mobile event-main-topic (26px) */
+  }
+}
+
 .event-main-topic {
   font-family: var(--font-heading);
   font-size: 34px;

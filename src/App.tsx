@@ -9,7 +9,8 @@ const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/00waEW4UngZW4Dv55T8k800";
 
 const EVENT_DETAILS = {
   name: "OHANA Event",
-  subtitle: "„A másik azt tükrözi, amit látsz benne.”",
+  subtitle: "„Az Ohana hawaiiul azt jelenti család, és a családból senkit nem hagyunk magára.”",
+  mirrorQuote: "„A másik azt tükrözi, amit látsz benne.”",
   topicTitle: "Önreflexió — hogyan értheted meg és sajátíthatod el a gyakorlatban",
   introText: "Ha szeretnéd megérteni miért történik mindig “ugyanaz” a párkapcsolataidban és bizonyos élethelyzeteidben …",
   
@@ -149,6 +150,9 @@ function App() {
 
         {/* Intro Section */}
         <section className="movie-title-box" style={{ textAlign: "center" }}>
+          <p className="mirror-quote">
+            {EVENT_DETAILS.mirrorQuote}
+          </p>
           <h2 className="event-main-topic">
             {EVENT_DETAILS.topicTitle}
           </h2>
