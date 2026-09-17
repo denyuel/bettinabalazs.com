@@ -41,20 +41,24 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     // Assuming structure:
     // A: Name, B: Email, C: Purchase Date, D: Payment Status, E: Stripe Session ID (optional)
     // We check if Status (column index 3) is "successful" or "paid"
+    // Filter out previous event registrations (August 2026 and earlier)
     const successfulTickets = rows.filter((row) => {
+      const purchaseDate = row[2] || "";
       const status = (row[3] || "").toLowerCase();
-      return status === "successful" || status === "paid";
+      const isPaid = status === "successful" || status === "paid";
+      const isCurrentEvent = purchaseDate >= "2026. 09.";
+      return isPaid && isCurrentEvent;
     });
 
     const soldCount = successfulTickets.length;
-    const isSoldOut = true; // Forced sold out as requested by owner
+    const isSoldOut = soldCount >= maxTickets;
 
     return new Response(
       JSON.stringify({
         soldCount,
         maxTickets,
         isSoldOut,
-        ticketsRemaining: 0,
+        ticketsRemaining: Math.max(0, maxTickets - soldCount),
       }),
       {
         status: 200,

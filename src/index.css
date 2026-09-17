@@ -169,6 +169,21 @@ header {
   line-height: 1.75;
 }
 
+.event-main-topic {
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #000000;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .event-main-topic {
+    font-size: 26px;
+  }
+}
+
 /* Event Details Block */
 .event-details-card {
   background: var(--bg-card);
@@ -246,6 +261,53 @@ header {
   color: #000000;
   margin-bottom: 2.5rem;
   letter-spacing: 0.02em;
+}
+
+/* Topics Section */
+.topics-section {
+  width: 100%;
+}
+
+.topics-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.topic-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 1.35rem 1.6rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.topic-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.topic-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  margin-top: 0.55rem;
+  flex-shrink: 0;
+}
+
+.topic-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
 }
 
 .program-timeline {

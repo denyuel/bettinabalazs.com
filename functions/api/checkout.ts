@@ -60,8 +60,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           "Sheet1!A2:E"
         );
         const successfulTickets = rows.filter((row) => {
+          const purchaseDate = row[2] || "";
           const status = (row[3] || "").toLowerCase();
-          return status === "successful" || status === "paid";
+          const isPaid = status === "successful" || status === "paid";
+          const isCurrentEvent = purchaseDate >= "2026. 09.";
+          return isPaid && isCurrentEvent;
         });
         soldCount = successfulTickets.length;
       } catch (err) {

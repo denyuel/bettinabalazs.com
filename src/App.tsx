@@ -8,47 +8,30 @@ import borbasLogo from "./assets/borbas_webdesign_logo.png";
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/00waEW4UngZW4Dv55T8k800";
 
 const EVENT_DETAILS = {
-  name: "OHANA event",
-  subtitle: "„Az Ohana hawaiiul azt jelenti család, és a családból senkit nem hagyunk magára.”",
-  movieTitle: "Truman Show",
-  tagline: "Miért idealizálod a párkapcsolataidat és emberi kapcsolataidat, ahelyett hogy elfogadnád őket olyannak, amilyenek",
-  description:
-    "Egy különleges filmest, ahol a vetítés után közösen dolgozzuk fel a film üzenetét egy vezetett beszélgetés során. Az este célja, hogy mélyebben megértsd önmagadat, a kapcsolódási mintáidat és azt, mi állhat a nehézségeid mögött.",
+  name: "OHANA Event",
+  subtitle: "„A másik azt tükrözi, amit látsz benne.”",
+  topicTitle: "Önreflexió — hogyan értheted meg és sajátíthatod el a gyakorlatban",
+  introText: "Ha szeretnéd megérteni miért történik mindig “ugyanaz” a párkapcsolataidban és bizonyos élethelyzeteidben …",
   
   // Event card
   dateLabel: "Dátum",
-  dateValue: "2026. augusztus 7, péntek",
+  dateValue: "2026. november 17., kedd",
   timeLabel: "Időpont",
-  timeValue: "18:00–21:45",
-  movieLabel: "Film",
-  movieValue: "Truman Show",
+  timeValue: "19:30–21:30",
+  topicLabel: "Téma",
   locationLabel: "Helyszín",
   locationName: "Magvető Café",
   locationAddress: "1074 Budapest, Dohány utca 13.",
   priceLabel: "Jegyár",
   priceValue: "18 000 Ft / fő",
 
-  // Program
-  programTitle: "AZ EST MENETE",
-  programItems: [
-    {
-      time: "17:45–18:15",
-      title: "Érkezés",
-    },
-    {
-      time: "18:15–18:25",
-      title: "Vezetett meditáció",
-      warning:
-        "Kérjük, hogy a meditáció ideje alatt már ne érkezz. Amennyiben később érkezel, a kávézóba csak a filmvetítés kezdetekor tudsz belépni.",
-    },
-    {
-      time: "18:30–20:30",
-      title: "Filmvetítés",
-    },
-    {
-      time: "20:30–21:45",
-      title: "Közös beszélgetés és feldolgozás",
-    },
+  // Topics section
+  topicsTitle: "Ezen az estén szó lesz arról:",
+  topics: [
+    "Milyen emberi kapcsolatokra vágysz igazán",
+    "Hogyan törheted meg a fájdalmas, ismétlődő élethelyzeteidet",
+    "Hogyan tanulhatsz és fejlődhetsz bármilyen élet eseményed által",
+    "Hogyan érted meg magad jobban a másikon keresztül — mit mutat meg rólad az, akit irigyelsz, akit szeretsz, aki idegesít..stb",
   ],
 
   // Important Note
@@ -70,7 +53,7 @@ const EVENT_DETAILS = {
 
 function App() {
   // Capacity & Status states
-  const [isSoldOut, setIsSoldOut] = useState<boolean>(true);
+  const [isSoldOut, setIsSoldOut] = useState<boolean>(false);
   const [loadingStatus, setLoadingStatus] = useState<boolean>(true);
 
   // URL Status states
@@ -95,7 +78,8 @@ function App() {
       setLoadingStatus(true);
       const res = await fetch("/api/status");
       if (res.ok) {
-        setIsSoldOut(true); // Forced sold out
+        const data = await res.json();
+        setIsSoldOut(data.isSoldOut);
       }
     } catch (err) {
       console.error("Error fetching event capacity status:", err);
@@ -163,9 +147,14 @@ function App() {
           </div>
         </header>
 
-        {/* Description (placed under the cafe image as requested!) */}
+        {/* Intro Section */}
         <section className="movie-title-box" style={{ textAlign: "center" }}>
-          <p className="description">{EVENT_DETAILS.description}</p>
+          <h2 className="event-main-topic">
+            {EVENT_DETAILS.topicTitle}
+          </h2>
+          <p className="description" style={{ marginTop: "1rem", fontStyle: "italic" }}>
+            {EVENT_DETAILS.introText}
+          </p>
         </section>
 
         <div className="section-divider"></div>
@@ -182,16 +171,10 @@ function App() {
             <span className="detail-row-value">{EVENT_DETAILS.timeValue}</span>
           </div>
 
-          {/* Film row */}
-          <div className="detail-row">
-            <span className="detail-row-label">{EVENT_DETAILS.movieLabel}</span>
-            <span className="detail-row-value">{EVENT_DETAILS.movieValue}</span>
-          </div>
-
           {/* Theme/Topic row */}
           <div className="detail-row">
-            <span className="detail-row-label">Téma</span>
-            <span className="detail-row-value">{EVENT_DETAILS.tagline}</span>
+            <span className="detail-row-label">{EVENT_DETAILS.topicLabel}</span>
+            <span className="detail-row-value">{EVENT_DETAILS.topicTitle}</span>
           </div>
 
           <div className="detail-row">
@@ -212,18 +195,17 @@ function App() {
 
         <div className="section-divider"></div>
 
-        {/* Schedule */}
-        <section>
-          <h2 className="program-header-title">{EVENT_DETAILS.programTitle}</h2>
+        {/* Topics Section */}
+        <section className="topics-section">
+          <h3 className="section-heading-cormorant" style={{ marginBottom: "2rem" }}>
+            {EVENT_DETAILS.topicsTitle}
+          </h3>
           
-          <div className="program-timeline">
-            {EVENT_DETAILS.programItems.map((item, idx) => (
-              <div key={idx} className="program-item">
-                <span className="program-time">{item.time}</span>
-                <span className="program-title">{item.title}</span>
-                {item.warning && (
-                  <p className="program-description warning">{item.warning}</p>
-                )}
+          <div className="topics-grid">
+            {EVENT_DETAILS.topics.map((topic, idx) => (
+              <div key={idx} className="topic-card">
+                <span className="topic-dot"></span>
+                <p className="topic-text">{topic}</p>
               </div>
             ))}
           </div>
